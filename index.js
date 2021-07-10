@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const { MongoClient } = require('mongodb');
 const helmet = require('helmet');
 const userRoute = require("./routes/users");
+const authRoute = require("./routes/auth");
 
 
 
@@ -26,6 +27,7 @@ app.use(helmet());
 app.use(morgan("common"));
 
 app.use("/api/users", userRoute);
+app.use("/api/auth", authRoute);
 
 app.listen(5000., () => {
     console.log("server is running");
